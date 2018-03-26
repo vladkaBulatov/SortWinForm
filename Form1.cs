@@ -21,26 +21,28 @@ namespace SortWinForm
 
         private void buttonSort_Click(object sender, EventArgs e)
         {
-            //List<int> numbersBubbleSort = new List<int> { 5, 6, 8, 12, 20, 50, 1, 3 };
-            List<int> numbersBubbleSort = new List<int>();
+            displaySort.Clear();
+            List<int> numbers = new List<int>();
             
-            string str = null;
+            string str = introducedNumbers.Text;
 
             for (int i = 0; i < str.Length; i++)
             {
-                str = introducedNumbers.Text;
                 if (str[i] == '1' || str[i] == '2'|| str[i] == '3'||
                     str[i] == '4'|| str[i] == '5'|| str[i] == '6'||
                     str[i] == '7'|| str[i] == '8'|| str[i] == '9'|| str[i] == '0')
                 {
-                    numbersBubbleSort.Add(str[i]);
+                    
+                    int c = (int)Char.GetNumericValue(str[i]);
+
+                    numbers.Add(c);
                 }
             }
             
-            //BubbleSort(ref numbersBubbleSort);
-            for (int i = 0; i < numbersBubbleSort.Count; i++)
+            
+            for (int i = 0; i < numbers.Count; i++)
             {
-                displaySort.Text += Convert.ToString(numbersBubbleSort[i]) + ",";
+                displaySort.Text += Convert.ToString(numbers[i]) + ",";
             }
             
             
