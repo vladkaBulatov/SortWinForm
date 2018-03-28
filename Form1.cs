@@ -25,7 +25,16 @@ namespace SortWinForm
             string valueFromTextBox = introducedNumbers.Text;
 
             CheckingAndAdditionCharacters(numbers, valueFromTextBox);
+            numbers = SelectionOfSorts(numbers);
 
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                displaySort.Text += Convert.ToString(numbers[i]) + " ";
+            }
+        }
+
+        private List<int> SelectionOfSorts(List<int> numbers)
+        {
             if (bubbleSort.Checked == true)
             {
                 BubbleSort(ref numbers);
@@ -35,10 +44,7 @@ namespace SortWinForm
 
             }
 
-            for (int i = 0; i < numbers.Count; i++)
-            {
-                displaySort.Text += Convert.ToString(numbers[i]) + " ";
-            }
+            return numbers;
         }
 
         private static void CheckingAndAdditionCharacters(List<int> numbers, string valueFromTextBox)
