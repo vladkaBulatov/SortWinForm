@@ -40,7 +40,10 @@ namespace SortWinForm
             {
                 BubbleSort(ref numbers);
             }
+            else if (SortByChoice.Checked == true)
+            {
 
+            }
 
             for (int i = 0; i < numbers.Count; i++)
             {
@@ -52,29 +55,15 @@ namespace SortWinForm
 
         public void BubbleSort(ref List<int> variables)
         {
-            /*for (int i = 1; i < variables.Count; i++)
-            {
-                if (variables[i - 1] > variables[i])
+            again:
+            for (int i = 1; i < variables.Count; i++)
+            {   
+                if (variables[i-1] > variables[i])
                 {
                     Reshuffle(variables, i - 1, i);
-                }
-                
-            }*/
-            bool swapped;
-            do
-            {
-                swapped = false;
-                for (int i = 1; i < variables.Count; i++)
-                {
-                    if (variables[i - 1].CompareTo(variables[i]) > 0)
-                    {
-                        Reshuffle(variables, i - 1, i);
-                        swapped = true;
-                    }
+                    goto again;
                 }
             }
-            while (swapped != false);
-
         }
         void Reshuffle(List<int> variables, int left, int right)
         {
