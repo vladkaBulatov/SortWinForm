@@ -30,11 +30,10 @@ namespace SortWinForm
                     valueFromTextBox[i] == '4'|| valueFromTextBox[i] == '5'|| valueFromTextBox[i] == '6'||
                     valueFromTextBox[i] == '7'|| valueFromTextBox[i] == '8'|| valueFromTextBox[i] == '9'|| valueFromTextBox[i] == '0')
                 {   
-                    int c = (int)Char.GetNumericValue(valueFromTextBox[i]);
-                    numbers.Add(c);
+                    var addedElement = (int)Char.GetNumericValue(valueFromTextBox[i]);
+                    numbers.Add(addedElement);
                 }
             }
-
 
             if (bubbleSort.Checked == true)
             {
@@ -49,8 +48,6 @@ namespace SortWinForm
             {
                 displaySort.Text += Convert.ToString(numbers[i]) + " ";
             }
-            
-            
         }
 
         public void BubbleSort(ref List<int> variables)
