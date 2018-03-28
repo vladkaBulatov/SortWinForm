@@ -21,19 +21,10 @@ namespace SortWinForm
         {
             displaySort.Clear();
             List<int> numbers = new List<int>();
-            
+
             string valueFromTextBox = introducedNumbers.Text;
 
-            for (int i = 0; i < valueFromTextBox.Length; i++)
-            {
-                if (valueFromTextBox[i] == '1' || valueFromTextBox[i] == '2'|| valueFromTextBox[i] == '3'||
-                    valueFromTextBox[i] == '4'|| valueFromTextBox[i] == '5'|| valueFromTextBox[i] == '6'||
-                    valueFromTextBox[i] == '7'|| valueFromTextBox[i] == '8'|| valueFromTextBox[i] == '9'|| valueFromTextBox[i] == '0')
-                {   
-                    var addedElement = (int)Char.GetNumericValue(valueFromTextBox[i]);
-                    numbers.Add(addedElement);
-                }
-            }
+            CheckingAndAdditionCharacters(numbers, valueFromTextBox);
 
             if (bubbleSort.Checked == true)
             {
@@ -47,6 +38,20 @@ namespace SortWinForm
             for (int i = 0; i < numbers.Count; i++)
             {
                 displaySort.Text += Convert.ToString(numbers[i]) + " ";
+            }
+        }
+
+        private static void CheckingAndAdditionCharacters(List<int> numbers, string valueFromTextBox)
+        {
+            for (int i = 0; i < valueFromTextBox.Length; i++)
+            {
+                if (valueFromTextBox[i] == '1' || valueFromTextBox[i] == '2' || valueFromTextBox[i] == '3' ||
+                    valueFromTextBox[i] == '4' || valueFromTextBox[i] == '5' || valueFromTextBox[i] == '6' ||
+                    valueFromTextBox[i] == '7' || valueFromTextBox[i] == '8' || valueFromTextBox[i] == '9' || valueFromTextBox[i] == '0')
+                {
+                    var addedElement = (int)Char.GetNumericValue(valueFromTextBox[i]);
+                    numbers.Add(addedElement);
+                }
             }
         }
 
