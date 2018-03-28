@@ -99,11 +99,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelFirst.AutoSize = true;
             this.labelFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFirst.Location = new System.Drawing.Point(335, 9);
+            this.labelFirst.Location = new System.Drawing.Point(119, 9);
             this.labelFirst.Name = "labelFirst";
-            this.labelFirst.Size = new System.Drawing.Size(60, 24);
+            this.labelFirst.Size = new System.Drawing.Size(502, 24);
             this.labelFirst.TabIndex = 5;
-            this.labelFirst.Text = "00000";
+            this.labelFirst.Text = "Введите набор цифор которые хотите отсортировать";
             // 
             // InsertionSorting
             // 

@@ -12,8 +12,6 @@ namespace SortWinForm
 {
     public partial class SortWinForm : Form
     {
-        
-
         public SortWinForm()
         {
             InitializeComponent();
@@ -24,42 +22,53 @@ namespace SortWinForm
             displaySort.Clear();
             List<int> numbers = new List<int>();
             
-            string str = introducedNumbers.Text;
+            string valueFromTextBox = introducedNumbers.Text;
 
-            for (int i = 0; i < str.Length; i++)
+            for (int i = 0; i < valueFromTextBox.Length; i++)
             {
-                if (str[i] == '1' || str[i] == '2'|| str[i] == '3'||
-                    str[i] == '4'|| str[i] == '5'|| str[i] == '6'||
-                    str[i] == '7'|| str[i] == '8'|| str[i] == '9'|| str[i] == '0')
-                {
-                    
-                    int c = (int)Char.GetNumericValue(str[i]);
-
+                if (valueFromTextBox[i] == '1' || valueFromTextBox[i] == '2'|| valueFromTextBox[i] == '3'||
+                    valueFromTextBox[i] == '4'|| valueFromTextBox[i] == '5'|| valueFromTextBox[i] == '6'||
+                    valueFromTextBox[i] == '7'|| valueFromTextBox[i] == '8'|| valueFromTextBox[i] == '9'|| valueFromTextBox[i] == '0')
+                {   
+                    int c = (int)Char.GetNumericValue(valueFromTextBox[i]);
                     numbers.Add(c);
                 }
             }
-            
-            
+
+
+            if (bubbleSort.Checked == true)
+            {
+                BubbleSort(ref numbers);
+            }
+
+
             for (int i = 0; i < numbers.Count; i++)
             {
-                displaySort.Text += Convert.ToString(numbers[i]) + ",";
+                displaySort.Text += Convert.ToString(numbers[i]) + " ";
             }
             
             
         }
 
-        public void BubbleSort(ref List<int> items)
+        public void BubbleSort(ref List<int> variables)
         {
-            
+            /*for (int i = 1; i < variables.Count; i++)
+            {
+                if (variables[i - 1] > variables[i])
+                {
+                    Reshuffle(variables, i - 1, i);
+                }
+                
+            }*/
             bool swapped;
             do
             {
                 swapped = false;
-                for (int i = 1; i < items.Count; i++)
+                for (int i = 1; i < variables.Count; i++)
                 {
-                    if (items[i - 1].CompareTo(items[i]) > 0)
+                    if (variables[i - 1].CompareTo(variables[i]) > 0)
                     {
-                        Swap(items, i - 1, i);
+                        Reshuffle(variables, i - 1, i);
                         swapped = true;
                     }
                 }
@@ -67,16 +76,14 @@ namespace SortWinForm
             while (swapped != false);
 
         }
-        void Swap(List<int> items, int left, int right)
+        void Reshuffle(List<int> variables, int left, int right)
         {
             if (left != right)
             {
-                int temp = items[left];
-                items[left] = items[right];
-                items[right] = temp;
+                int timeVariable = variables[left];
+                variables[left] = variables[right];
+                variables[right] = timeVariable;
             }
         }
-
-        
     }
 }
