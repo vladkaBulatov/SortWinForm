@@ -51,9 +51,7 @@ namespace SortWinForm
         {
             for (int i = 0; i < valueFromTextBox.Length; i++)
             {
-                if (valueFromTextBox[i] == '1' || valueFromTextBox[i] == '2' || valueFromTextBox[i] == '3' ||
-                    valueFromTextBox[i] == '4' || valueFromTextBox[i] == '5' || valueFromTextBox[i] == '6' ||
-                    valueFromTextBox[i] == '7' || valueFromTextBox[i] == '8' || valueFromTextBox[i] == '9' || valueFromTextBox[i] == '0')
+                if (IsNumeral(valueFromTextBox[i]))
                 {
                     var addedElement = (int)Char.GetNumericValue(valueFromTextBox[i]);
                     numbers.Add(addedElement);
@@ -61,17 +59,20 @@ namespace SortWinForm
             }
         }
 
+        private static bool IsNumeral(char value)
+        {
+            var result = value == '1' || value == '2' || value == '3' ||
+                    value == '4' || value == '5' || value == '6' ||
+                    value == '7' || value == '8' || value == '9' || value == '0';
+            return result;
+        }
+
         public void BubbleSort(ref List<int> variables)
         {
-            again:
-            for (int i = 1; i < variables.Count; i++)
-            {   
-                if (variables[i-1] > variables[i])
-                {
-                    Reshuffle(variables, i - 1, i);
-                    goto again;
-                }
-            }
+            for (int k = 0; k < variables.Count - 1; k++)
+                for (int i = 0; i < variables.Count - 1; i++)
+                    if (variables[i] > variables[i+1])
+                        Reshuffle(variables, i, i + 1);
         }
         void Reshuffle(List<int> variables, int left, int right)
         {
